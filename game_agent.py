@@ -79,9 +79,16 @@ def custom_score_2(game, player):
     if game.is_winner(player):
         return float("inf")
 
+    """
+    This function will use the distance from the center of the board
+    to determine score. 
+    """
+    # half the game width to get the center x position
     width = game.width / 2.
+    # half the game height to get the center y position
     height = game.height / 2.
     y_coord, x_coord = game.get_player_location(player)
+    # square the distance
     return float((height - y_coord)**2 + (width - x_coord)**2)
 
 
